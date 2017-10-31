@@ -1,0 +1,153 @@
+body{
+  background-repeat: none;
+  background-size: cover;
+  background-position: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#myCarousel{
+  /*box-shadow: 8px 8px 4px black;*/
+  margin-bottom: 50px;
+}
+
+/*#carouselStart{
+
+}*/
+
+
+.navbar-default{
+  opacity: 0.5;
+  border-color: #9e8ab4;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.navbar-brand{
+  font-size: 30px;
+}
+
+.pac-container {
+        z-index: 10000 !important;
+    }
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 0 auto;
+  margin-left: 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: fixed;
+  padding-top: 5px;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(0,0,0,0.4);
+  text-align: center;
+  color:white;
+}
+
+.container{
+  /*margin-top: 10px;*/
+  width: 700px;
+}
+
+#loginForm{
+  width:400px;
+}
+
+#signUp{
+  width:400px;
+}
+
+#container0{
+  width:500px;
+  height:400px;
+  padding-left:50px;
+}
+
+
+h6{
+  color:white;
+}
+#navbarsExampleDefault{
+  float: right !important;
+  display: inline-block;
+}
+#linksBar{
+  margin-left:20px!important;
+  margin-right:20px;
+  float:right!important;
+}
+
+
+
+
+/*Modal CSS*/
+.center {
+    margin-top:50px;
+}
+
+.modal-header {
+	padding-bottom: 5px;
+}
+
+.modal-footer {
+    	padding: 0;
+	}
+
+.modal-footer .btn-group button {
+	height:40px;
+	border-top-left-radius : 0;
+	border-top-right-radius : 0;
+	border: none;
+	border-right: 1px solid #ddd;
+}
+
+.modal-footer .btn-group:last-child > button {
+	border-right: 0;
+}
+/*End of Modal CSS*/
