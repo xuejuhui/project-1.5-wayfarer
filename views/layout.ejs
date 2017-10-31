@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamTrip</title>
+    <!-- STYLESHEETS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- IM HERE -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- APPLICATION SCRIPT -->
+    <script src="app/app.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">DreamTrip</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="user-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <% if (currentUser) { %>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/destinations">Destinations</a></li>
+              <li><a data-toggle="modal" data-target="#myModal" href="#">Plan Trip</a></li>
+              <li><a data-toggle="modal" data-target="#myMap" href="#">Map</a></li>
+            <% } else { %>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/signup">Signup</a></li>
+            <% } %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <main class="container">
+      <%- body %>
+    </main>
+
+    <div id="myMap" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+
+          <div class="modal-content">
+              <div class="col-md-6 col-md-offset-3" id="map-container">
+                  <h3 class="text-center"> Checkout Your Destination Here
+                      <h3>
+                          <div class="pac-card" id="pac-card">
+                              <input id="pac-input" class="form-control" type="text" placeholder="Enter a location">
+
+                          </div>
+                          <div id="map"></div>
+                          <div id="infowindow-content">
+                              <img src="" width="16" height="16" id="place-icon">
+                              <span id="place-name" class="title"></span><br>
+                              <span id="place-address"></span>
+                          </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD457c0j22_gVCUN1CFmssOWA6twPe40-Q&libraries=places"></script>
+
+  </body>
+</html>
