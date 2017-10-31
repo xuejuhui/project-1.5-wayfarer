@@ -42,9 +42,30 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
  //Remove caching
-
   res.setHeader('Cache-Control', 'no-cache');
   next();
+});
+
+app.get('/api/users', controllers.user.index);
+app.delete('/api/users/:user_id',controllers.user.destroy);
+app.post('/signup', function signup(req, res) {
+  console.log(`${req.body.username} ${req.body.password}`);
+  User.register(new User({ username: req.body.username }), req.body.password,
+    function (err, newUser) {
+      passport.authenticate('local')(req, res, function() {
+        res.send(newUser);
+      });
+    }
+  )});
+app.post('/login', passport.authenticate('local'), function (req, res) {
+  console.log(JSON.stringify(req.user));
+  res.send(req.user);
+});
+app.get('/logout', function (req, res) {
+  console.log("BEFORE logout", req);
+  req.logout();
+  res.send(req);
+  console.log("AFTER logout", req);
 });
 
 var port = process.env.API_PORT || 3001;
