@@ -7,7 +7,6 @@ body{
 }
 
 #myCarousel{
-  /*box-shadow: 8px 8px 4px black;*/
   margin-bottom: 50px;
 }
 
@@ -26,12 +25,8 @@ body{
 }
 
 .navbar-brand{
-  font-size: 30px;
+  font-size: 100%;
 }
-
-.pac-container {
-        z-index: 10000 !important;
-    }
 
 
 html, body {
@@ -80,23 +75,20 @@ html {
 }
 
 .footer {
-  position: fixed;
   padding-top: 5px;
   bottom: 0;
   width: 100%;
-  height: 30px;
   background-color: rgba(0,0,0,0.4);
   text-align: center;
   color:white;
 }
 
 .container{
-  /*margin-top: 10px;*/
-  width: 700px;
+  width: 100%;
 }
 
 #loginForm{
-  width:400px;
+  width:50%;
 }
 
 #signUp{
