@@ -2,7 +2,7 @@
   "name": "project-1.5-wayfarer",
   "version": "1.0.0",
   "description": "hello",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
