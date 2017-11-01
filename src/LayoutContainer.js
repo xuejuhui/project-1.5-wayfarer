@@ -19,6 +19,7 @@ class LayoutContainer extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
+	console.log("Hello does this work?");
   handleSubmit(e){
     e.preventDefault();
     let username = this.state.username;
@@ -71,7 +72,7 @@ class LayoutContainer extends Component {
       <div>
 
       <button onClick={ e => this.buttonOnClick(e)}>switch</button>
-        <NavBar 
+        <NavBar
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
     	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
