@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import Post from './Post.js'
 import PostCityImage from './PostCityImage.js'
+import PostModal from './PostModal.js'
 
 class PostContainer extends Component {
+
+	constructor(props) {
+    super(props);
+    this.state = {
+      
+    };
+  }
+
+                    // <button className="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-orange" style={{'zIndex': 0}} id="addPostBtn" >+</button>
+
   render() {
     return (
       <div>
@@ -14,12 +25,12 @@ class PostContainer extends Component {
                         <p>United Kingdom</p>
                     </div>
                     <div className="col-xs-6">
-                    	<PostCityImage />
+                        <PostCityImage />
                     </div>
                 </div>
                 <div className="row" style={{'marginTop': 15 + 'px'}}>
                     <div className="col-xs-1 col-xs-offset-10">
-                    <button className="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-orange" style={{'zIndex': 0}} id="addPostBtn">+</button>
+                        <PostModal />
                     </div>
                 </div>
                 <Post />
