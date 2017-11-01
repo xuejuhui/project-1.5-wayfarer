@@ -13,7 +13,6 @@ class CityContainer extends Component {
                 <City />
                 <City />
                 <City />
-                <div className="cityComponent">City</div>
             </div>
       </div>
     );

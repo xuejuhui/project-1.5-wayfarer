@@ -14,6 +14,7 @@ class LoggedInContainer extends Component {
       <PostContainer />
       	</div>
       	</div>
+      	<hr />
       </div>
     );
   }

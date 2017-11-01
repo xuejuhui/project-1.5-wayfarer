@@ -25,49 +25,55 @@
 
 #bodyContainer {
 	margin: 20px 40px 20px 40px;
-	background-color: yellow;
+	background-color: white;
 	height: 80vh;
 }
 
 #cityContainer {
 	/*margin: 20px;*/
-	border: 10px groove;
-	background-color: lightgreen;
+	box-shadow: 8px 8px 5px #888888;
+	background-color: #EBE8E8;
 	height: 80vh;
 	overflow-y:scroll;
 }
 
 .cityImage {
-	height: 100px;
-	width: auto;
+	/*height: 100px;
+	width: auto;*/
+	width:100%;
+	height:auto;
 }
 
 #postContainer {
 	/*margin: -10px;*/
-	border: 10px groove;
 	background-color: lightgrey;
 	height: 80vh;
 	overflow-y:scroll;
+	box-shadow: 8px 8px 5px #888888;
 }
 
 .cityComponent {
 	height: 15vh;
 	width: 90%;
-	background-color: grey;
+	background-color: #C7C5C5;
 	margin: auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 10px;
+	box-shadow: 5px 5px 5px #888888;
+
 }
 
 .postComponent {
 	height: 15vh;
 	width: 90%;
-	background-color: red;
+	background-color: #C7C5C5;
 	margin: auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 10px;
+	box-shadow: 5px 5px 5px #888888;
+
 }
 
 #addPostBtn {
