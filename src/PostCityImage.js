@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CityImage extends Component {
+class PostCityImage extends Component {
   render() {
     return (
       <div>    
@@ -10,4 +10,4 @@ class CityImage extends Component {
   }
 }
 
-export default CityImage;
+export default PostCityImage;
