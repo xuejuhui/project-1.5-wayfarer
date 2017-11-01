@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from './Post.js'
+import CityImage from './CityImage.js'
 
 class PostContainer extends Component {
   render() {
@@ -13,7 +14,7 @@ class PostContainer extends Component {
                         <p>United Kingdom</p>
                     </div>
                     <div className="col-xs-6">
-                        <img src="images/pic02.jpg" className="cityImage" />
+                    	<CityImage />
                     </div>
                 </div>
                 <div className="row" style={{'marginTop': 15 + 'px'}}>
