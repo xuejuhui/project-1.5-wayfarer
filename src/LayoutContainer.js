@@ -12,7 +12,7 @@ class LayoutContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      username: '', password: ''
+      username: '', password: '', pageSwitch:true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
