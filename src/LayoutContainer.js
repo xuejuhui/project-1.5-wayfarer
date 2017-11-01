@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js'
 import HomeContent from './HomeContent.js'
+
 import axios from 'axios'
 import {browserHistory} from 'react-router';
 // import './Home.css';
@@ -53,17 +54,27 @@ class LayoutContainer extends Component {
   }
   handlePasswordChange(e){
     this.setState({password: e.target.value});
+
   }
   render() {
+    let thingsToPrint = "";
+    if(this.state.pageSwitch){
+      thingsToPrint = <HomeContent />
+    }else{
+      thingsToPrint = <LoggedInContainer />
+    }
     return (
       <div>
+
+      <button onClick={ e => this.buttonOnClick(e)}>switch</button>
         <NavBar 
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
     	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
     	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
         />
-        <HomeContent />
+      {thingsToPrint}
+
       </div>
     );
   }
