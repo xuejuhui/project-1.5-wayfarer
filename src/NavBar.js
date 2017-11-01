@@ -25,7 +25,7 @@ class NavBar extends Component {
                     <li className="active"><a href="/">Home</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="#" onClick={this.props.handleLogout}>Logout</a></li>
                     <li className="active"><a href="#" data-toggle="modal" data-target="#squarespaceModal">Login / Signup</a></li>
                 </ul>
             </div>
@@ -51,7 +51,7 @@ class NavBar extends Component {
                             <label for="inputPassword1">Password</label>
                             <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword2" placeholder="Password" />
                         </div>
-                        <button type="submit" className="btn btn-default">Submit</button>
+                        <button type="submit" className="btn btn-default" data-toggle='modal' data-target='#squarespaceModal'>Submit</button>
                     </form>
                     <br />
                     <div className="modal-header">
@@ -71,7 +71,7 @@ class NavBar extends Component {
                             <label for="confirmPassword">Confirm</label>
                             <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
                         </div>
-                        <button type="submit" className="btn btn-default">Submit</button>
+                        <button type="submit" className="btn btn-default" data-toggle='modal' data-target='#squarespaceModal'>Submit</button>
                     </form>
 
                     <div className="modal-footer">
