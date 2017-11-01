@@ -19,7 +19,6 @@ class LayoutContainer extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
-	console.log("Hello does this work?");
   handleSubmit(e){
     e.preventDefault();
     let username = this.state.username;
