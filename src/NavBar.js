@@ -1,5 +1,7 @@
 // Developer TODO: Define App component defintion here
 import React, { Component } from 'react';
+
+
 // import './Home.css';
 // import SearchContainer from './SearchContainer.js'
 
@@ -40,14 +42,14 @@ class NavBar extends Component {
                     <div className="modal-header">
                         <h3 className="modal-title" id="lineModalLabel">Log in</h3>
                     </div>
-                    <form>
+                     <form onSubmit={ this.props.handleSubmitLog }>
                         <div className="form-group">
                             <label for="inputEmail1">Email address</label>
-                            <input type="email" className="form-control" id="inputEmail1" placeholder="Enter email" />
+                           <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="email" className="form-control" id="inputEmail2" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword1">Password</label>
-                            <input type="password" className="form-control" id="inputPassword1" placeholder="Password" />
+                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword2" placeholder="Password" />
                         </div>
                         <button type="submit" className="btn btn-default">Submit</button>
                     </form>
@@ -56,18 +58,18 @@ class NavBar extends Component {
                         <h3 className="modal-title" id="lineModalLabel2">Sign up</h3>
                     </div>
 
-                    <form>
+                    <form onSubmit={ this.props.handleSubmit }>
                         <div className="form-group">
                             <label for="inputEmail2">Email address</label>
-                            <input type="email" className="form-control" id="inputEmail2" placeholder="Enter email" />
+                            <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="email" className="form-control" id="inputEmail2" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword2">Password</label>
-                            <input type="password" className="form-control" id="inputPassword2" placeholder="Password" />
+                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword2" placeholder="Password" />
                         </div>
                         <div className="form-group">
                             <label for="confirmPassword">Confirm</label>
-                            <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
+                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
                         </div>
                         <button type="submit" className="btn btn-default">Submit</button>
                     </form>
