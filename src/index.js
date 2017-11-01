@@ -1,13 +1,9 @@
-// Developer TODO: Load in App component and render to the DOM
-// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Home.js'
-// import {Router, browserHistory} from 'react-router'
-// import routes from './config/routes.js'
-// import './index.css'
+import {Router, browserHistory} from 'react-router'
+import routes from './routes.js'
 
 ReactDOM.render(
-  <Home />,
+  <Router routes = {routes} history={browserHistory}/>,
   document.getElementById('root')
 );

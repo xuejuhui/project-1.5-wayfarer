@@ -2,19 +2,59 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.js'
 import HomeContent from './HomeContent.js'
-import LoggedInContainer from './LoggedInContainer.js'
+
+import axios from 'axios'
+import {browserHistory} from 'react-router';
+// import './Home.css';
+// import SearchContainer from './SearchContainer.js'
 
 class LayoutContainer extends Component {
-  constructor(){
-    super()
-    //sets the initial state via the constructor! that's the constructor's job :)
+	constructor(props) {
+    super(props);
     this.state = {
-      pageSwitch: true,
-    }
+      username: '', password: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitLog = this.handleSubmitLog.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
+  handleSubmit(e){
+    e.preventDefault();
+    let username = this.state.username;
+    let password = this.state.password;
+    console.log(this.state.username);
+     axios.post(`http://localhost:3001/signup`, {username:username, password:password})
+    .then(res => {
+      console.log('res is ', res);
+      browserHistory.push('/login');
+    }, err => {
+      console.log(err);
+    });
+  }
+    handleSubmitLog(e){
+    e.preventDefault();
+    let username = this.state.username;
+    let password = this.state.password;
+  axios.post(`http://localhost:3001/login`, {username:username, password:password})
+    .then(res => {
+      console.log('res is ', res);
+      this.setState({isAuthenticated: true, id:res._id});
+      browserHistory.push('/');
+    }, err => {
+      console.log('oops!');
+      console.log(err);
+    });
+  }
+  // handleLogout(){
+  //     this.setState({isAuthenticated: false, id:''});
+  // }
+    handleUsernameChange(e){
+    this.setState({username: e.target.value});
+  }
+  handlePasswordChange(e){
+    this.setState({password: e.target.value});
 
-  buttonOnClick(e){
-      this.setState({pageSwitch: !this.state.pageSwitch})
   }
   render() {
     let thingsToPrint = "";
@@ -25,9 +65,16 @@ class LayoutContainer extends Component {
     }
     return (
       <div>
-        <button onClick={ e => this.buttonOnClick(e)}>img</button>
-        <NavBar />
-        {thingsToPrint}
+
+      <button onClick={ e => this.buttonOnClick(e)}>switch</button>
+        <NavBar 
+           handleSubmit = {this.handleSubmit.bind(this)}
+           handleSubmitLog = {this.handleSubmitLog.bind(this)}
+    	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
+    	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
+        />
+      {thingsToPrint}
+
       </div>
     );
   }
