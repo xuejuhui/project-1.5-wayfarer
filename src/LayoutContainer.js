@@ -12,22 +12,24 @@ class LayoutContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      username: '', password: ''
+      username: '', password: '', pageSwitch:true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
   handleSubmit(e){
     e.preventDefault();
+
     let username = this.state.username;
     let password = this.state.password;
     console.log(this.state.username);
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
-      browserHistory.push('/login');
+      browserHistory.push('/');
     }, err => {
       console.log(err);
     });
@@ -40,15 +42,16 @@ class LayoutContainer extends Component {
     .then(res => {
       console.log('res is ', res);
       this.setState({isAuthenticated: true, id:res._id});
-      browserHistory.push('/');
+      browserHistory.push('/login');
     }, err => {
       console.log('oops!');
       console.log(err);
     });
   }
-  // handleLogout(){
-  //     this.setState({isAuthenticated: false, id:''});
-  // }
+  handleLogout(e){
+    e.preventDefault();
+      this.setState({isAuthenticated: false, id:''});
+  }
     handleUsernameChange(e){
     this.setState({username: e.target.value});
   }
@@ -71,11 +74,12 @@ class LayoutContainer extends Component {
       <div>
 
       <button onClick={ e => this.buttonOnClick(e)}>switch</button>
-        <NavBar 
+        <NavBar
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
     	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
     	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
+        handleLogout = {this.handleLogout.bind(this)}
         />
       {thingsToPrint}
 

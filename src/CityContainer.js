@@ -13,6 +13,9 @@ class CityContainer extends Component {
                 <City />
                 <City />
                 <City />
+                <City />
+                <City />
+                <City />
             </div>
       </div>
     );
