@@ -10,15 +10,16 @@ import {browserHistory} from 'react-router';
 
 class LayoutContainer extends Component {
   //constructor should always be the first one fix levi's problem
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '', isAuthenticated:false
+      username: '', password: '',password1:'', isAuthenticated:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
      cookieLogIn(){
@@ -66,7 +67,7 @@ class LayoutContainer extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-
+    if(this.state.password===this.state.password1){
     let username = this.state.username;
     let password = this.state.password;
     console.log(this.state.username);
@@ -77,7 +78,7 @@ class LayoutContainer extends Component {
     }, err => {
       console.log(err);
     });
-  }
+  }}
     handleSubmitLog(e){
     e.preventDefault();
     let username = this.state.username;
@@ -103,6 +104,9 @@ class LayoutContainer extends Component {
   handlePasswordChange(e){
     this.setState({password: e.target.value});
   }
+    handlePasswordConfirm(e){
+    this.setState({password1: e.target.value});
+  }
 
   buttonOnClick(e){
     this.setState({isAuthenticated: !this.state.isAuthenticated})
@@ -126,8 +130,9 @@ class LayoutContainer extends Component {
         <NavBar
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
-    	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
-    	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
+         handlePasswordChange = {this.handlePasswordChange.bind(this)}
+         handleUsernameChange = {this.handleUsernameChange.bind(this)}
+          handlePasswordConfirm = {this.handlePasswordConfirm.bind(this)}
         handleLogout = {this.handleLogout.bind(this)}
         />
       {thingsToPrint}
