@@ -18,7 +18,6 @@ class LoggedInContainer extends Component {
       />
       	</div>
       	</div>
-      	<hr />
       </div>
     );
   }

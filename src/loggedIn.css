@@ -24,9 +24,11 @@
 }
 
 #bodyContainer {
-	margin: 20px 40px 20px 40px;
+	padding: 50px 40px 20px 40px;
 	background-color: white;
-	height: 80vh;
+	background-image: url("../src/images/geneva.jpg");
+	background-size: cover;
+	height: 100vh;
 }
 
 #cityContainer {
