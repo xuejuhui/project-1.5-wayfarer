@@ -30,7 +30,7 @@ function create(req, res) {
 		}
 		console.log('user found: ', user);
 
-		// status.user = user;
+		status.user = user;
 		// status.username = user.username;
 		status.save(function(err) {
 			if(err){res.send(err)}

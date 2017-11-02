@@ -10,7 +10,12 @@ class LoggedInContainer extends Component {
         <div id="bodyContainer">
         <div className="row">
       <CityContainer />
-      <PostContainer />
+      <PostContainer id={this.props.id}
+        handleSubmitPost = {this.props.handleSubmitPost}
+        handleTitleChange = {this.props.handleTitleChange}
+        handleDescriptionChange = {this.props.handleDescriptionChange}
+
+      />
       	</div>
       	</div>
       	<hr />

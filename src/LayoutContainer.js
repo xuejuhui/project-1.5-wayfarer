@@ -14,7 +14,7 @@ class LayoutContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '', isAuthenticated:false, isProfile:false
+      username: '', password: '',id:'',newPostTitle: '', newPostDescription:'', isAuthenticated:false, isProfile:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
@@ -22,6 +22,9 @@ class LayoutContainer extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
+     this.handleSubmitPost = this.handleSubmitPost.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
   }
      cookieLogIn(){
     let userCookie = this.getCookie("Veggie");
@@ -29,7 +32,8 @@ class LayoutContainer extends Component {
     axios.post(`http://localhost:3001/login`, userCookie)
     .then(res => {
       console.log('res is ', res);
-      this.setState({isAuthenticated: true, id:res._id, username:res.username});
+      console.log('test: ', res.data._id)
+      this.setState({isAuthenticated: true, id:res.data._id, username:res.username});
         console.log("got an cookie!!!log in!!")
     }, err => {
       console.log('oops!');
@@ -87,7 +91,7 @@ class LayoutContainer extends Component {
   axios.post(`http://localhost:3001/login`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
-      this.setState({isAuthenticated: true, id:res._id});
+      this.setState({isAuthenticated: true, id:res.data._id});
       this.setCookie('Veggie', `username=${username}&password=${password}`,0.03);
     }, err => {
       console.log('oops!');
@@ -107,6 +111,35 @@ class LayoutContainer extends Component {
   }
     handlePasswordConfirm(e){
     this.setState({password1: e.target.value});
+  }
+    handleSubmitPost(e){
+    e.preventDefault();
+    let title = this.state.newPostTitle;
+    let description = this.state.newPostDescription;
+    let user = this.state.id;
+     console.log(title)
+     console.log(user)
+    axios({
+      method: 'POST',
+      url: `http://localhost:3001/api/status`,
+      data: {
+        title: title,
+        description: description,
+        userId: user
+      }
+    })
+    .then(res => {
+      console.log('res is ', res);
+      this.setState({newPostTitle: '', newPostDescription:''});
+    }, err => {
+      console.log(err);
+    });
+  }
+  handleTitleChange(e){
+    this.setState({newPostTitle: e.target.value});
+  }
+  handleDescriptionChange(e){
+    this.setState({newPostDescription: e.target.value});
   }
 
   buttonOnClick(e){
@@ -133,13 +166,20 @@ class LayoutContainer extends Component {
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
-      thingsToPrint = <LoggedInContainer />
+      thingsToPrint = <LoggedInContainer 
+      
+        handleSubmitPost = {this.handleSubmitPost.bind(this)}
+        handleTitleChange = {this.handleTitleChange.bind(this)}
+        handleDescriptionChange = {this.handleDescriptionChange.bind(this)}
+
+      />
     }
     return thingsToPrint;
   }
 
   render() {
     let layOut = this.navBarControler();
+    <LoggedInContainer />
 
     return (
       <div>
