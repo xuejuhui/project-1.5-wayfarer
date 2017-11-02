@@ -73,10 +73,8 @@
 	margin-bottom: 10px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px #888888;
-
-}
-
-#addPostBtn {
+	word-wrap: break-word;
+	overflow: hidden;
 
 }
 
@@ -91,7 +89,6 @@
 	width:auto;
 }
 
-footer {
-	height:100px;
-	background-color: red;
+.expandPost {
+	height: auto;
 }

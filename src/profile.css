@@ -1,9 +1,11 @@
 .profile-body {
-  background: #DDDDDD;
+  /*background: #DDDDDD;*/
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: "Arial";
   color: #333333;
+  background-image: url("../src/images/jungle.jpg");
+  background-size: cover;
 }
 
 .profile-container {
@@ -13,6 +15,7 @@
   width: 90%;
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+  opacity: 0.9;
 }
 
 header {
@@ -222,15 +225,23 @@ hr {
 }
 
 .profile-post {
-    display: table;
-    width: 70%;
-    height: 17vh;
-    background: #ffcfcf;
-    margin: auto;
-    border-radius: 8px;
-    margin-bottom: 2%;
-    box-shadow: 3px 3px 3px #888888;
+    /*display: table;*/
+    height: 15vh;
+  width: 90%;
+  background-color: #ffcfcf;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+    word-wrap: break-word;
+    overflow: hidden;
 }
+
+.expandPost {
+  height: auto;
+}
+
 .profile-post p, h4{
     text-align: center;
     vertical-align: middle;

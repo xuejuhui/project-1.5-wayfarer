@@ -38,6 +38,9 @@ class PostContainer extends Component {
     console.log('mounting', this.state.post)
   }
 
+
+
+
                     // <button className="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-orange" style={{'zIndex': 0}} id="addPostBtn" >+</button>
 
   render() {

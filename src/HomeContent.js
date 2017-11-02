@@ -23,7 +23,7 @@ class HomeContent extends Component {
                     </div>
                 </div>
                 <div className="item">
-                    <img style={{height: 80 + 'vh', width:100+'%'}} src={require('./images/travel8.jpeg')} alt="world" />
+                    <img style={{height: 80 + 'vh', width:100+'%'}} src={require('./images/syd.jpg')} alt="world" />
                     <div className="carousel-caption">
                         <h3>world</h3>
                         <p>hmmm, where to go next?</p>

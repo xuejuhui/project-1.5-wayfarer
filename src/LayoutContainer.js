@@ -25,6 +25,7 @@ class LayoutContainer extends Component {
      this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleHomeBtnOnClick = this.handleHomeBtnOnClick.bind(this);
   }
      cookieLogIn(){
     let userCookie = this.getCookie("Veggie");
@@ -147,7 +148,13 @@ class LayoutContainer extends Component {
   }
 
   handleProfileBtnOnClick(e){
+    e.preventDefault();
     this.setState({isProfile:true})
+  }
+
+  handleHomeBtnOnClick(e){
+    e.preventDefault();
+    this.setState({isProfile:false})
   }
 
   navBarControler(){
@@ -192,6 +199,7 @@ class LayoutContainer extends Component {
           handlePasswordConfirm = {this.handlePasswordConfirm.bind(this)}
         handleLogout = {this.handleLogout.bind(this)}
         handleProfileBtnOnClick = {this.handleProfileBtnOnClick.bind(this)}
+        handleHomeBtnOnClick = {this.handleHomeBtnOnClick.bind(this)}
         />
       {layOut}
 
