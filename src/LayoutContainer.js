@@ -9,6 +9,7 @@ import {browserHistory} from 'react-router';
 // import SearchContainer from './SearchContainer.js'
 
 class LayoutContainer extends Component {
+  //constructor should always be the first one fix levi's problem
 	constructor(props) {
     super(props);
     this.state = {
@@ -126,7 +127,6 @@ class LayoutContainer extends Component {
     return (
       <div>
 
-      <button onClick={ e => this.buttonOnClick(e)}>switch</button>
         <NavBar
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
