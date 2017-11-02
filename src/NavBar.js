@@ -27,6 +27,7 @@ class NavBar extends Component {
                 <ul className="nav navbar-nav navbar-right">
                     <li><a href="#" onClick={this.props.handleLogout} id="log-out-btn" style={{display:'none'}}>Logout</a></li>
                     <li className="active"><a href="#" data-toggle="modal" data-target="#squarespaceModal" id="log-in-btn">Login / Signup</a></li>
+                    <li className="active"><a href="#" id="profile-btn" style={{display:'none'}} onClick={this.props.handleProfileBtnOnClick}>Profile</a></li>
                 </ul>
             </div>
         </div>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import NavBar from './NavBar.js'
 import HomeContent from './HomeContent.js'
 import LoggedInContainer from './LoggedInContainer.js'
+import ProfileContainer from './ProfileContainer.js'
 import axios from 'axios'
 import {browserHistory} from 'react-router';
 // import './Home.css';
@@ -13,7 +14,7 @@ class LayoutContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '', isAuthenticated:false
+      username: '', password: '', isAuthenticated:false, isProfile:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
@@ -108,17 +109,33 @@ class LayoutContainer extends Component {
     this.setState({isAuthenticated: !this.state.isAuthenticated})
   }
 
-  render() {
+  handleProfileBtnOnClick(e){
+    this.setState({isProfile:true})
+  }
+
+  navBarControler(){
     let thingsToPrint = "";
     if(!this.state.isAuthenticated){
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "none";
       if(document.getElementById("log-in-btn"))document.getElementById("log-in-btn").style.display = "";
+      if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "none";
       thingsToPrint = <HomeContent />
+    }else if(this.state.isAuthenticated && this.state.isProfile){
+      if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
+      if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
+      if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
+      thingsToPrint = <ProfileContainer />
     }else{
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
+      if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
       thingsToPrint = <LoggedInContainer />
     }
+    return thingsToPrint;
+  }
+
+  render() {
+    let layOut = this.navBarControler();
 
     return (
       <div>
@@ -130,8 +147,9 @@ class LayoutContainer extends Component {
     	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
     	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
         handleLogout = {this.handleLogout.bind(this)}
+        handleProfileBtnOnClick = {this.handleProfileBtnOnClick.bind(this)}
         />
-      {thingsToPrint}
+      {layOut}
 
       </div>
     );
