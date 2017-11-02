@@ -58,18 +58,18 @@ class NavBar extends Component {
                         <h3 className="modal-title" id="lineModalLabel2">Sign up</h3>
                     </div>
 
-                    <form onSubmit={ this.props.handleSubmit }>
+                    <form onSubmit={this.props.handleSubmit }>
                         <div className="form-group">
                             <label for="inputEmail2">User Name</label>
                             <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="text" className="form-control" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword2">Password</label>
-                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword2" placeholder="Password" />
+                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword3" placeholder="Password" />
                         </div>
                         <div className="form-group">
                             <label for="confirmPassword">Confirm</label>
-                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
+                            <input value={ this.props.password1 } onChange={this.props.handlePasswordConfirm} type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
                         </div>
                         <button type="submit" className="btn btn-default" data-toggle='modal' data-target='#squarespaceModal'>Submit</button>
                     </form>

@@ -27,7 +27,7 @@ class PostModal extends Component {
 					  <option value="new York">New York</option>
 					  <option value="vancouver">Vancouver</option>
 					  <option value="taipei">Taipei</option>
-					  <option value="fujien">Fujien</option>
+					  <option value="fujien">Fujian</option>
 					</select>
 					 </div>
 					 <div class="form-group">

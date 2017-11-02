@@ -12,13 +12,14 @@ class LayoutContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '', isAuthenticated:false
+      username: '', password: '',password1:'', isAuthenticated:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
   }
      cookieLogIn(){
     let userCookie = this.getCookie("Veggie");
@@ -65,9 +66,10 @@ class LayoutContainer extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-
+    if(this.state.password===this.state.password1){
     let username = this.state.username;
     let password = this.state.password;
+    let password1 = this.state.password1;
     console.log(this.state.username);
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
@@ -76,9 +78,11 @@ class LayoutContainer extends Component {
     }, err => {
       console.log(err);
     });
-  }
+  }}
+
     handleSubmitLog(e){
     e.preventDefault();
+
     let username = this.state.username;
     let password = this.state.password;
   axios.post(`http://localhost:3001/login`, {username:username, password:password})
@@ -102,6 +106,10 @@ class LayoutContainer extends Component {
   handlePasswordChange(e){
     this.setState({password: e.target.value});
   }
+  handlePasswordConfirm(e){
+    this.setState({password1: e.target.value});
+  }
+
 
   buttonOnClick(e){
     this.setState({isAuthenticated: !this.state.isAuthenticated})
@@ -110,12 +118,8 @@ class LayoutContainer extends Component {
   render() {
     let thingsToPrint = "";
     if(!this.state.isAuthenticated){
-      if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "none";
-      if(document.getElementById("log-in-btn"))document.getElementById("log-in-btn").style.display = "";
       thingsToPrint = <HomeContent />
     }else{
-      if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
-      if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       thingsToPrint = <LoggedInContainer />
     }
 
@@ -128,6 +132,7 @@ class LayoutContainer extends Component {
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
     	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
     	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
+         handlePasswordConfirm = {this.handlePasswordConfirm.bind(this)}
         handleLogout = {this.handleLogout.bind(this)}
         />
       {thingsToPrint}
