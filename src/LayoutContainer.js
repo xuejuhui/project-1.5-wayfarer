@@ -9,7 +9,7 @@ import {browserHistory} from 'react-router';
 // import SearchContainer from './SearchContainer.js'
 
 class LayoutContainer extends Component {
-  //constructor should always be the first one fix levi's problem
+  //constructor should always be the first one fix levi's problem 
 	constructor(props) {
     super(props);
     this.state = {
