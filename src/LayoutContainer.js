@@ -110,8 +110,12 @@ class LayoutContainer extends Component {
   render() {
     let thingsToPrint = "";
     if(!this.state.isAuthenticated){
+      if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "none";
+      if(document.getElementById("log-in-btn"))document.getElementById("log-in-btn").style.display = "";
       thingsToPrint = <HomeContent />
     }else{
+      if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
+      if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       thingsToPrint = <LoggedInContainer />
     }
 

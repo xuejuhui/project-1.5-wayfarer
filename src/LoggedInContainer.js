@@ -7,7 +7,6 @@ class LoggedInContainer extends Component {
   render() {
     return (
       <div>
-        Hi! I'm LoggedInContainer!
         <div id="bodyContainer">
         <div className="row">
       <CityContainer />
