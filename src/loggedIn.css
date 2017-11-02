@@ -73,10 +73,8 @@
 	margin-bottom: 10px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px #888888;
-
-}
-
-#addPostBtn {
+	word-wrap: break-word;
+	overflow: hidden;
 
 }
 
@@ -89,6 +87,10 @@
 .cityName {
 	margin-top: 6vh;
 	width:auto;
+}
+
+.expandPost {
+	height: auto;
 }
 
 footer {
