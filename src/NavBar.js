@@ -44,8 +44,8 @@ class NavBar extends Component {
                     </div>
                      <form onSubmit={ this.props.handleSubmitLog }>
                         <div className="form-group">
-                            <label for="inputEmail1">Email address</label>
-                           <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="email" className="form-control" id="inputEmail2" placeholder="Enter email" />
+                            <label for="inputEmail1">User Name</label>
+                           <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="text" className="form-control" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword1">Password</label>
@@ -60,8 +60,8 @@ class NavBar extends Component {
 
                     <form onSubmit={ this.props.handleSubmit }>
                         <div className="form-group">
-                            <label for="inputEmail2">Email address</label>
-                            <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="email" className="form-control" id="inputEmail2" placeholder="Enter email" />
+                            <label for="inputEmail2">User Name</label>
+                            <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="text" className="form-control" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword2">Password</label>

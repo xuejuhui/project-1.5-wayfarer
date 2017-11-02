@@ -12,7 +12,7 @@ class LayoutContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '', pageSwitch:true
+      username: '', password: '', isAuthenticated:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
@@ -72,7 +72,7 @@ class LayoutContainer extends Component {
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
-      browserHistory.push('/');
+      // browserHistory.push('/');
     }, err => {
       console.log(err);
     });
@@ -86,7 +86,6 @@ class LayoutContainer extends Component {
       console.log('res is ', res);
       this.setState({isAuthenticated: true, id:res._id});
       this.setCookie('Veggie', `username=${username}&password=${password}`,0.03);
-      browserHistory.push('/');
     }, err => {
       console.log('oops!');
       console.log(err);
@@ -105,16 +104,17 @@ class LayoutContainer extends Component {
   }
 
   buttonOnClick(e){
-    this.setState({pageSwitch: !this.state.pageSwitch})
+    this.setState({isAuthenticated: !this.state.isAuthenticated})
   }
 
   render() {
     let thingsToPrint = "";
-    if(this.state.pageSwitch){
+    if(!this.state.isAuthenticated){
       thingsToPrint = <HomeContent />
     }else{
       thingsToPrint = <LoggedInContainer />
     }
+
     return (
       <div>
 
