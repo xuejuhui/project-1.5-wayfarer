@@ -10,8 +10,8 @@ import {browserHistory} from 'react-router';
 // import SearchContainer from './SearchContainer.js'
 
 class LayoutContainer extends Component {
-  //constructor should always be the first one fix levi's problem 
-	constructor(props) {
+  //constructor should always be the first one fix levi's problem
+  constructor(props) {
     super(props);
     this.state = {
       username: '', password: '', isAuthenticated:false, isProfile:false
@@ -20,6 +20,7 @@ class LayoutContainer extends Component {
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
      cookieLogIn(){
@@ -67,7 +68,7 @@ class LayoutContainer extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-
+    if(this.state.password===this.state.password1){
     let username = this.state.username;
     let password = this.state.password;
     console.log(this.state.username);
@@ -78,7 +79,7 @@ class LayoutContainer extends Component {
     }, err => {
       console.log(err);
     });
-  }
+  }}
     handleSubmitLog(e){
     e.preventDefault();
     let username = this.state.username;
@@ -103,6 +104,9 @@ class LayoutContainer extends Component {
   }
   handlePasswordChange(e){
     this.setState({password: e.target.value});
+  }
+    handlePasswordConfirm(e){
+    this.setState({password1: e.target.value});
   }
 
   buttonOnClick(e){
@@ -140,12 +144,12 @@ class LayoutContainer extends Component {
     return (
       <div>
 
-      <button onClick={ e => this.buttonOnClick(e)}>switch</button>
         <NavBar
            handleSubmit = {this.handleSubmit.bind(this)}
            handleSubmitLog = {this.handleSubmitLog.bind(this)}
-    	   handlePasswordChange = {this.handlePasswordChange.bind(this)}
-    	   handleUsernameChange = {this.handleUsernameChange.bind(this)}
+         handlePasswordChange = {this.handlePasswordChange.bind(this)}
+         handleUsernameChange = {this.handleUsernameChange.bind(this)}
+          handlePasswordConfirm = {this.handlePasswordConfirm.bind(this)}
         handleLogout = {this.handleLogout.bind(this)}
         handleProfileBtnOnClick = {this.handleProfileBtnOnClick.bind(this)}
         />
