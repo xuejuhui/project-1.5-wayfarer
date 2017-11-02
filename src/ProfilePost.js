@@ -9,7 +9,7 @@ class ProfilePost extends Component {
   }
 
   onClick(e){
-    if(this.state.expand===''){this.setState({expand:'expandPost'}); console.log("asdf")}
+    if(this.state.expand===''){this.setState({expand:'expandPost'});}
     else{this.setState({expand:''})}
   }
   render() {
