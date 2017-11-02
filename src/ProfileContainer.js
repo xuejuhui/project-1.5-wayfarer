@@ -1,8 +1,14 @@
-<body>
-<div className="container">
-  <header>
-  </header>
-  <main>
+import React, { Component } from 'react';
+import ProfilePosts from './ProfilePosts.js'
+import style from './profile.css'
+
+class ProfileContainer extends Component {
+  render() {
+    return (
+      <div>
+      <div className="profile-body">
+<div className="profile-container">
+  <div className="profile-main">
     <div className="row">
       <div className="left col-lg-4">
         <div className="photo-left">
@@ -23,31 +29,16 @@
           <i className="fa fa-tumblr-square" aria-hidden="true"></i>
         </div>
       </div>
-      <div id="profile-post-panel">
       <div className="right col-lg-8">
-          <h3 className="post">Posts</h3>
+      <ProfilePosts />
       </div>
-
-        <div className="profile-post">
-            <h4>Title:</h4>
-            <p>Hello, my name is Levi Perry. This is a test post for a profile page I am making.</p>
-      </div>
-
-      <div className="profile-post">
-          <h4>Title:</h4>
-          <p>Hello, my name is Levi Perry. This is a test post for a profile page I am making.</p>
-    </div>
-
-    <div className="profile-post">
-        <h4>Title:</h4>
-        <p>Hello, my name is Levi Perry. This is a test post for a profile page I am making.</p>
+</div>
+</div>
   </div>
+</div>
+      </div>
+    );
+  }
+}
 
-  <div className="profile-post">
-      <h4>Title:</h4>
-      <p>Hello, my name is Levi Perry. This is a test post for a profile page I am making.</p>
-</div>
-</div>
-  </main>
-</div>
-</body>
+export default ProfileContainer;
