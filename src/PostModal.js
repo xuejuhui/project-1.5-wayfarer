@@ -27,7 +27,7 @@ class PostModal extends Component {
 					  <option value="new York">New York</option>
 					  <option value="vancouver">Vancouver</option>
 					  <option value="taipei">Taipei</option>
-					  <option value="fujien">TFujien</option>
+					  <option value="fujien">Fujien</option>
 					</select>
 					 </div>
 					 <div class="form-group">
@@ -35,7 +35,7 @@ class PostModal extends Component {
 					   <input type="title" class="form-control" id="inputTitle" placeholder="" />
 					 </div>
 					 <div class="form-group">
-					   <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+					   <textarea class="form-control" rows="3"></textarea>
 					 </div>
 					 <div class="form-group">
 					 <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#postModal">Submit</button>
