@@ -18,11 +18,11 @@ class NavBar extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-                <a className="navbar-brand" href="/">Wayfarer</a>
+                <a className="navbar-brand" href="/" onClick={this.props.handleHomeBtnOnClick}>Wayfarer</a>
             </div>
             <div id="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav">
-                    <li className="active"><a href="/">Home</a></li>
+                    <li className="active"><a href="/" onClick={this.props.handleHomeBtnOnClick}>Home</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                     <li><a href="#" onClick={this.props.handleLogout} id="log-out-btn" style={{display:'none'}}>Logout</a></li>
