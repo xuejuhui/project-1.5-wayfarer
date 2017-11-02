@@ -8,8 +8,8 @@ body{
 
 #myCarousel{
   margin-bottom: 50px;
-}
 
+}
 
 .navbar-default{
   opacity: 0.5;
@@ -112,7 +112,7 @@ h6{
 }
 
 .carousel .item {
-  height: 65vh;
+  height: 30;
 }
 
 .item img {
@@ -146,4 +146,6 @@ h6{
 .modal-footer .btn-group:last-child > button {
 	border-right: 0;
 }
+
 /*End of Modal CSS*/
+
