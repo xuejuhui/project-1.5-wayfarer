@@ -45,6 +45,12 @@ app.use(function (req, res, next) {
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
+app.get('/api', controllers.api.index);
+app.get('/api/status', controllers.status.index);
+app.get('/api/status/:status_id', controllers.status.show);
+app.post('/api/status', controllers.status.create);
+app.delete('/api/status/:status_id', controllers.status.destroy);
+app.get('/api/statusnuke',controllers.status.nuke);
 
 app.get('/api/users', controllers.user.index);
 app.delete('/api/users/:user_id',controllers.user.destroy);

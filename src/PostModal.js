@@ -1,11 +1,47 @@
 // Developer TODO: Define App component defintion here
 import React, { Component } from 'react';
+import axios from 'axios'
 
 
 // import './Home.css';
 // import SearchContainer from './SearchContainer.js'
 
 class PostModal extends Component {
+    constructor(props) {
+    super(props);
+    this.state={newPostTitle: '', newPostDescription:''}
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    let title = this.state.newPostTitle;
+    let description = this.state.newPostDescription;
+    let user = this.props._id;
+     console.log(title)
+    axios({
+      method: 'POST',
+      url: `http://localhost:3001/api/status`,
+      data: {
+        title: title,
+        description: description,
+        userId: user
+      }
+    })
+    .then(res => {
+      console.log('res is ', res);
+      this.setState({newPostTitle: '', newPostDescription:''});
+    }, err => {
+      console.log(err);
+    });
+  }
+  handleTitleChange(e){
+    this.setState({newPostTitle: e.target.value});
+  }
+  handleDescriptionChange(e){
+    this.setState({newPostDescription: e.target.value});
+  }
   render() {
     return (
 <div className="Home">
@@ -20,7 +56,7 @@ class PostModal extends Component {
                 </div>
                 <div className="modal-body">
                 	<h1>Create a new post</h1>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
 					 <div class="form-group">
 					 <select>
 					  <option value="london">London</option>
@@ -32,10 +68,10 @@ class PostModal extends Component {
 					 </div>
 					 <div class="form-group">
 					   <label for="title">Title</label>
-					   <input type="title" class="form-control" id="inputTitle" placeholder="" />
+					   <input value={this.state.title} onChange={this.handleTitleChange} type="title" class="form-control" id="inputTitle" placeholder="" />
 					 </div>
 					 <div class="form-group">
-					   <textarea class="form-control" rows="3"></textarea>
+					   <textarea  vlaue={this.state.description} onChange={this.handleDescriptionChange} class="form-control" rows="3"></textarea>
 					 </div>
 					 <div class="form-group">
 					 <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#postModal">Submit</button>
