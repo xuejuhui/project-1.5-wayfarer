@@ -14,7 +14,7 @@ class LoggedInContainer extends Component {
         handleSubmitPost = {this.props.handleSubmitPost}
         handleTitleChange = {this.props.handleTitleChange}
         handleDescriptionChange = {this.props.handleDescriptionChange}
-
+        post = {this.props.post}
       />
       	</div>
       	</div>
