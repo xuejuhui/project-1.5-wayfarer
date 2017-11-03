@@ -1,9 +1,4 @@
-// Developer TODO: Define App component defintion here
 import React, { Component } from 'react';
-
-
-// import './Home.css';
-// import SearchContainer from './SearchContainer.js'
 
 class NavBar extends Component {
   render() {

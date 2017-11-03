@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CityContainer from './CityContainer.js'
 import PostContainer from './PostContainer.js'
-import style from './loggedIn.css'
+import style from './css/loggedIn.css'
 
 class LoggedInContainer extends Component {
   render() {
