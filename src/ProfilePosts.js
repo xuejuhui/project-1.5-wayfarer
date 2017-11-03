@@ -3,13 +3,16 @@ import ProfilePost from './ProfilePost.js'
 
 class ProfilePosts extends Component {
   render() {
-  	console.log("inside ProfilePosts: ", this.props.post[0])
+  	console.log("inside ProfilePosts: ", this.props.post[2])
   	let renderPost = this.props.post.map(p =>{
+
   		return <ProfilePost 
       title={p.title} 
       description={p.description} 
       postId={p._id} 
       handlePostDelete = {this.props.handlePostDelete}
+      postUserId={p.user} 
+      currentUser={this.props.id}
       />
   	})
 
@@ -25,4 +28,4 @@ class ProfilePosts extends Component {
   }
 }
 
-export default ProfilePosts;
+export default ProfilePosts;  

@@ -228,6 +228,7 @@ class LayoutContainer extends Component {
       console.log("check username: ", this.state.username)
       thingsToPrint = <ProfileContainer 
         handlePostDelete = {this.handlePostDelete.bind(this)}
+        id = {this.state.id}
         username = {this.state.username}
         post={this.state.post} 
         />
