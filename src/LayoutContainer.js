@@ -1,4 +1,3 @@
-// Developer TODO: Define App component defintion here
 import React, { Component } from 'react';
 import NavBar from './NavBar.js'
 import HomeContent from './HomeContent.js'
@@ -6,8 +5,6 @@ import LoggedInContainer from './LoggedInContainer.js'
 import ProfileContainer from './ProfileContainer.js'
 import axios from 'axios'
 import {browserHistory} from 'react-router';
-// import './Home.css';
-// import SearchContainer from './SearchContainer.js'
 
 class LayoutContainer extends Component {
   //constructor should always be the first one fix levi's problem
