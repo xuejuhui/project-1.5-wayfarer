@@ -64,7 +64,7 @@ class PostContainer extends Component {
                 <div className="row" style={{'marginTop': 15 + 'px'}}>
                     <div className="col-xs-6">
                         <h1>{this.props.cityClicked}</h1>
-                        <p>United Kingdom</p>
+                        <p>All posts about {this.props.cityClicked}</p>
                     </div>
                     <div className="col-xs-6">
                         <PostCityImage />

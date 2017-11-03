@@ -19,7 +19,7 @@ class Post extends Component {
       <div onClick={e =>this.onClick(e)}>
         <div className={`postComponent row ${this.state.expand}`}>
       <div className="col-xs-3">
-      <img className="cityImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRejUuLVpp1bpqc4xfzmFKQaQGkKG_LY-PrneVoW_KeF8nK2Ia3" alt="City"/>
+      <img className="cityImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4IcRyT_hLcN4VNMTj7M136R3FBH4tlT86UUQ7CZq5wnl4YgImg" alt="City"/>
       </div>
       <div className="col-xs-9">
       <h4 style={{marginBottom:0}}>Post Title: {this.props.title}</h4>
