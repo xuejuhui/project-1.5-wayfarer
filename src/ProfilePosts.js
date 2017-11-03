@@ -5,7 +5,12 @@ class ProfilePosts extends Component {
   render() {
   	console.log("inside ProfilePosts: ", this.props.post[0])
   	let renderPost = this.props.post.map(p =>{
-  		return <ProfilePost title={p.title} description={p.description} />
+  		return <ProfilePost 
+      title={p.title} 
+      description={p.description} 
+      postId={p._id} 
+      handlePostDelete = {this.props.handlePostDelete}
+      />
   	})
 
     return (

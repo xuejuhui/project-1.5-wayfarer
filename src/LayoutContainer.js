@@ -180,7 +180,8 @@ class LayoutContainer extends Component {
       url: `http://localhost:3001/api/status/${targetPost}`
     })
     .then((res)=> {
-      console.log('deleting post');
+      console.log('deleting post', res);
+      this.loadPostsFromServer();
     })
   }
 
@@ -226,10 +227,9 @@ class LayoutContainer extends Component {
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
       console.log("check username: ", this.state.username)
       thingsToPrint = <ProfileContainer 
+        handlePostDelete = {this.handlePostDelete.bind(this)}
         username = {this.state.username}
         post={this.state.post} 
-
-
         />
 
     }else{
@@ -241,10 +241,12 @@ class LayoutContainer extends Component {
         handleSubmitPost = {this.handleSubmitPost.bind(this)}
         handleTitleChange = {this.handleTitleChange.bind(this)}
         handleDescriptionChange = {this.handleDescriptionChange.bind(this)}
-        handleCitySwitch = {this.handleCitySwitch}
-        handleCitySelectorChange = {this.handleCitySelectorChange}
+        handleCitySwitch = {this.handleCitySwitch.bind(this)}
+        handleCitySelectorChange = {this.handleCitySelectorChange.bind(this)}
+        handlePostDelete = {this.handlePostDelete.bind(this)}
         cityClicked = {this.state.cityClicked}
         post={this.state.post}
+        id={this.state.id}
 
       />
     }
