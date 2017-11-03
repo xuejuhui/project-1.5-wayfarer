@@ -14,7 +14,7 @@ class LayoutContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '',id:'',newPostTitle: '', newPostDescription:'', isAuthenticated:false, isProfile:false
+      username: '', password: '',id:'',newPostTitle: '', newPostDescription:'',post: [], isAuthenticated:false, isProfile:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
@@ -26,6 +26,9 @@ class LayoutContainer extends Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleHomeBtnOnClick = this.handleHomeBtnOnClick.bind(this);
+        this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
+    this.handlePostDelete = this.handlePostDelete.bind(this);
+
   }
      cookieLogIn(){
     let userCookie = this.getCookie("Veggie");
@@ -43,6 +46,8 @@ class LayoutContainer extends Component {
   }
 
   componentDidMount() {
+    this.loadPostsFromServer();
+    console.log("inside componentDidMount", this.state.post)
     this.cookieLogIn();
   }
 
@@ -136,6 +141,26 @@ class LayoutContainer extends Component {
       console.log(err);
     });
   }
+    loadPostsFromServer(){
+    axios({
+      method: 'GET',
+      url: `http://localhost:3001/api/status`
+    })
+    .then((res) => {
+         console.log('res is ', res);
+        this.setState({post: res.data},()=>console.log("inside loadPostsFromServer: ", this.state.post))});
+  }
+  handlePostDelete(targetPost) {
+    console.log('target :', targetPost);
+    axios({
+      method: 'DELETE',
+      url: `http://localhost:3001/api/status/${targetPost}`
+    })
+    .then((res)=> {
+      console.log('deleting post');
+    })
+  }
+
   handleTitleChange(e){
     this.setState({newPostTitle: e.target.value});
   }
@@ -168,7 +193,7 @@ class LayoutContainer extends Component {
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
-      thingsToPrint = <ProfileContainer />
+      thingsToPrint = <ProfileContainer post={this.state.post} />
     }else{
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";

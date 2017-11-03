@@ -13,6 +13,7 @@ class ProfilePost extends Component {
     else{this.setState({expand:''})}
   }
   render() {
+    console.log(this.props.post)
     return (
       <div onClick={e=>this.onClick(e)}>
 <div className={`profile-post ${this.state.expand}`}>

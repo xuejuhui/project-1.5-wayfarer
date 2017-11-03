@@ -45,9 +45,21 @@ user.User.remove({}, function(err, users){
     return;
   }
 
-    user.User.create(user_list, function(err, users){
-      if (err) { return console.log('err', err); }
-      console.log("created", users.length, "users");
-    });
+    // user.User.create(user_list, function(err, users){
+    //   if (err) { return console.log('err', err); }
+    //   console.log("created", users.length, "users");
+    // });
+
+});
+user.Status.remove({}, function(err, users){
+  if(err) {
+    console.log('Error occurred in remove', err);
+    return;
+  }
+
+    // user.User.create(user_list, function(err, users){
+    //   if (err) { return console.log('err', err); }
+    //   console.log("created", users.length, "users");
+    // });
 
 });
