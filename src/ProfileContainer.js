@@ -31,7 +31,10 @@ class ProfileContainer extends Component {
         </div>
       </div>
       <div className="right col-lg-8">
-      <ProfilePosts post={this.props.post}/>
+      <ProfilePosts 
+      id = {this.props.id}
+      post={this.props.post}
+      />
       </div>
 </div>
 </div>

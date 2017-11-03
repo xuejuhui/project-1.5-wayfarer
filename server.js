@@ -10,7 +10,7 @@ var express = require('express'),
 
 var app = express(),
   router = express.Router();
-
+  
 var User = db.User;
 app.get('/', function(req,res){
   res.json('')
