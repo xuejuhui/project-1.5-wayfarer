@@ -226,6 +226,7 @@ class LayoutContainer extends Component {
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
       console.log("check username: ", this.state.username)
       thingsToPrint = <ProfileContainer 
+        id = {this.state.id}
         username = {this.state.username}
         post={this.state.post} 
 
