@@ -8,6 +8,7 @@ import axios from 'axios'
 
 class PostModal extends Component {
 
+
   render() {
     return (
 <div className="Home">
@@ -24,20 +25,21 @@ class PostModal extends Component {
                 	<h1>Create a new post</h1>
                     <form onSubmit={this.props.handleSubmitPost}>
 					 <div class="form-group">
-					 <select>
-					  <option value="london">London</option>
-					  <option value="new York">New York</option>
-					  <option value="vancouver">Vancouver</option>
-					  <option value="taipei">Taipei</option>
-					  <option value="fujien">Fujian</option>
+					 <select onChange={this.props.handleCitySelectorChange} id="inputCitySelector">
+                      <option value="none">--select--</option>  
+					  <option value="London">London</option>
+					  <option value="New York">New York</option>
+					  <option value="Vancouver">Vancouver</option>
+					  <option value="Taipei">Taipei</option>
+					  <option value="Fujian">Fujian</option>
 					</select>
 					 </div>
 					 <div class="form-group">
 					   <label for="title">Title</label>
-					   <input value={this.props.title} onChange={this.props.handleTitleChange} type="title" class="form-control" id="inputTitle" placeholder="" />
+					   <input onChange={this.props.handleTitleChange} type="title" class="form-control" id="inputTitle" placeholder="" />
 					 </div>
 					 <div class="form-group">
-					   <textarea  vlaue={this.props.description} onChange={this.props.handleDescriptionChange} class="form-control" rows="3"></textarea>
+					   <textarea onChange={this.props.handleDescriptionChange} class="form-control" rows="3" id="inputDescription"></textarea>
 					 </div>
 					 <div class="form-group">
 					 <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#postModal">Submit</button>

@@ -44,13 +44,26 @@ class PostContainer extends Component {
                     // <button className="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-orange" style={{'zIndex': 0}} id="addPostBtn" >+</button>
 
   render() {
+    let filterPost = this.props.post.filter(p =>{
+        return p.city===this.props.cityClicked;
+    })
+
+    let renderPost = filterPost.map(p =>{
+        return <Post 
+                title={p.title} 
+                description={p.description} 
+                handlePostDelete = {this.props.handlePostDelete}
+                id={this.props.id}
+                //posts ={this.state.post}/>
+                />
+    })
     return (
       <div>
 
         <div className="col-xs-7 col-xs-offset-1" id="postContainer">
                 <div className="row" style={{'marginTop': 15 + 'px'}}>
                     <div className="col-xs-6">
-                        <h1>London</h1>
+                        <h1>{this.props.cityClicked}</h1>
                         <p>United Kingdom</p>
                     </div>
                     <div className="col-xs-6">
@@ -63,13 +76,11 @@ class PostContainer extends Component {
                           handleSubmitPost = {this.props.handleSubmitPost}  
         handleTitleChange = {this.props.handleTitleChange}
         handleDescriptionChange = {this.props.handleDescriptionChange}
+        handleCitySelectorChange = {this.props.handleCitySelectorChange}
                         />
                     </div>
                 </div>
-                <Post handlePostDelete = {this.props.handlePostDelete}
-                id={this.props.id}
-                posts ={this.state.post}
-                />
+                {renderPost}
             </div>
       </div>
     );

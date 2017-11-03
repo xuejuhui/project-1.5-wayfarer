@@ -82,7 +82,7 @@
 .cityImg {
 	margin-top: 1vh;
 	height:13vh;
-	width: auto;
+	width: 100%;
 }
 
 .cityName {
