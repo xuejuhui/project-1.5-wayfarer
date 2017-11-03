@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class City extends Component {
+
+  localOnClick(){
+    this.props.handleCitySwitch(this.props.cityName)
+  }
+
   render() {
 
     let img = ''
@@ -27,7 +32,7 @@ class City extends Component {
 
 
     return (
-      <div>
+      <div onClick = {e => this.localOnClick(e)}>
       <div className="cityComponent row">
       <div className="col-xs-5">
       {img}

@@ -59,7 +59,7 @@ class PostContainer extends Component {
         <div className="col-xs-7 col-xs-offset-1" id="postContainer">
                 <div className="row" style={{'marginTop': 15 + 'px'}}>
                     <div className="col-xs-6">
-                        <h1>London</h1>
+                        <h1>{this.props.cityClicked}</h1>
                         <p>United Kingdom</p>
                     </div>
                     <div className="col-xs-6">

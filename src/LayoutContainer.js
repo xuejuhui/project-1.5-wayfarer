@@ -36,6 +36,7 @@ class LayoutContainer extends Component {
     this.handleHomeBtnOnClick = this.handleHomeBtnOnClick.bind(this);
     this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
     this.handlePostDelete = this.handlePostDelete.bind(this);
+     this.handleCitySwitch=this.handleCitySwitch.bind(this);
 
   }
      cookieLogIn(){
@@ -190,8 +191,9 @@ class LayoutContainer extends Component {
     this.setState({isProfile:false})
   }
 
-  handleCitySwitch(e){
+  handleCitySwitch(cityName){
     // switch
+    this.setState({cityClicked:cityName})
   }
 
   navBarControler(){
@@ -217,11 +219,14 @@ class LayoutContainer extends Component {
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
+      console.log("in navBarControler con: ", this.cityClicked)
       thingsToPrint = <LoggedInContainer 
       
         handleSubmitPost = {this.handleSubmitPost.bind(this)}
         handleTitleChange = {this.handleTitleChange.bind(this)}
         handleDescriptionChange = {this.handleDescriptionChange.bind(this)}
+        handleCitySwitch = {this.handleCitySwitch}
+        cityClicked = {this.state.cityClicked}
         post={this.state.post}
 
       />
