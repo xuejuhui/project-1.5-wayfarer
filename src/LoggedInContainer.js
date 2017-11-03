@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CityContainer from './CityContainer.js'
 import PostContainer from './PostContainer.js'
-import style from './loggedIn.css'
+import style from './css/loggedIn.css'
 
 class LoggedInContainer extends Component {
   render() {
@@ -9,12 +9,16 @@ class LoggedInContainer extends Component {
       <div>
         <div id="bodyContainer">
         <div className="row">
-      <CityContainer />
+      <CityContainer 
+         handleCitySwitch={this.props.handleCitySwitch}
+      />
       <PostContainer id={this.props.id}
         handleSubmitPost = {this.props.handleSubmitPost}
         handleTitleChange = {this.props.handleTitleChange}
         handleDescriptionChange = {this.props.handleDescriptionChange}
-
+        handleCitySelectorChange = {this.props.handleCitySelectorChange}
+        cityClicked = {this.props.cityClicked}
+        post = {this.props.post}
       />
       	</div>
       	</div>

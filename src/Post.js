@@ -1,4 +1,3 @@
-// Developer TODO: Define App component defintion here
 import React, { Component } from 'react';
 
 class Post extends Component {
@@ -22,8 +21,8 @@ class Post extends Component {
       <img className="cityImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRejUuLVpp1bpqc4xfzmFKQaQGkKG_LY-PrneVoW_KeF8nK2Ia3" alt="City"/>
       </div>
       <div className="col-xs-9">
-      <h4 style={{marginBottom:0}}>Post Title</h4>
-      <p>This city is amazing!blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla</p>
+      <h4 style={{marginBottom:0}}>Post Title: {this.props.title}</h4>
+      <p>{this.props.description}</p>
       </div>
       </div>
       </div>

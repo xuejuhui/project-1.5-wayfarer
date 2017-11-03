@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ProfilePosts from './ProfilePosts.js'
-import style from './profile.css'
+import style from './css/profile.css'
 
 class ProfileContainer extends Component {
   render() {
+
     return (
       <div>
       <div className="profile-body">
@@ -16,7 +17,7 @@ class ProfileContainer extends Component {
           <div className="active"></div>
         </div>
         <div className="info">
-          <h4 className="info-name">Levi Perry</h4>
+          <h4 className="info-name">{this.props.username}</h4>
           <p className="info-join">Join date: <span>10-01-2007</span></p>
           <p className="info-title">Web Developer</p>
           <p className="info-city">San Francisco</p>
@@ -30,7 +31,7 @@ class ProfileContainer extends Component {
         </div>
       </div>
       <div className="right col-lg-8">
-      <ProfilePosts />
+      <ProfilePosts post={this.props.post}/>
       </div>
 </div>
 </div>

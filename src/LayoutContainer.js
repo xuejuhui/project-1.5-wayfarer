@@ -14,7 +14,16 @@ class LayoutContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '', password: '',id:'',newPostTitle: '', newPostDescription:'', isAuthenticated:false, isProfile:false
+      username: '', 
+      password: '',
+      id:'',
+      newPostTitle: '', 
+      newPostDescription:'',
+      post: [], 
+      cityPost:'',
+      cityClicked:'',
+      isAuthenticated:false, 
+      isProfile:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitLog = this.handleSubmitLog.bind(this);
@@ -26,15 +35,21 @@ class LayoutContainer extends Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleHomeBtnOnClick = this.handleHomeBtnOnClick.bind(this);
+    this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
+    this.handlePostDelete = this.handlePostDelete.bind(this);
+     this.handleCitySwitch=this.handleCitySwitch.bind(this);
+     this.handleCitySelectorChange = this.handleCitySelectorChange.bind(this);
+
   }
      cookieLogIn(){
     let userCookie = this.getCookie("Veggie");
     console.log("cookieLogIn: ", userCookie);
     axios.post(`http://localhost:3001/login`, userCookie)
     .then(res => {
-      console.log('res is ', res);
-      console.log('test: ', res.data._id)
-      this.setState({isAuthenticated: true, id:res.data._id, username:res.username});
+      console.log('cookie res is ', res);
+      this.setState({isAuthenticated: true, id:res.data._id, username:res.data.username}, ()=>{
+        this.navBarControler();
+      })
         console.log("got an cookie!!!log in!!")
     }, err => {
       console.log('oops!');
@@ -43,6 +58,9 @@ class LayoutContainer extends Component {
   }
 
   componentDidMount() {
+    this.setState({cityClicked:'London'});
+    this.loadPostsFromServer();
+    console.log("inside componentDidMount", this.state.post)
     this.cookieLogIn();
   }
 
@@ -63,7 +81,6 @@ class LayoutContainer extends Component {
                 c = c.substring(1);
             }
             if (c.indexOf(name) == 0) {
-              console.log("watch: ", c)
 
                 return c.substring(name.length, c.length);
             }
@@ -71,20 +88,29 @@ class LayoutContainer extends Component {
         return "";
     }
 
+  emptyModal(){
+    document.getElementsByClassName('modalEmpty')[0].value = '';  
+    document.getElementsByClassName('modalEmpty')[1].value = '';  
+    document.getElementsByClassName('modalEmpty')[2].value = '';  
+    document.getElementsByClassName('modalEmpty')[3].value = '';  
+    document.getElementsByClassName('modalEmpty')[4].value = '';  
+  }
+
   handleSubmit(e){
     e.preventDefault();
     if(this.state.password===this.state.password1){
     let username = this.state.username;
     let password = this.state.password;
-    console.log(this.state.username);
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
-      // browserHistory.push('/');
     }, err => {
       console.log(err);
     });
-  }}
+    this.emptyModal();
+
+  }else{this.emptyModal()}}
+
     handleSubmitLog(e){
     e.preventDefault();
     let username = this.state.username;
@@ -98,6 +124,7 @@ class LayoutContainer extends Component {
       console.log('oops!');
       console.log(err);
     });
+    this.emptyModal();
   }
   handleLogout(e){
     e.preventDefault();
@@ -118,29 +145,56 @@ class LayoutContainer extends Component {
     let title = this.state.newPostTitle;
     let description = this.state.newPostDescription;
     let user = this.state.id;
-     console.log(title)
-     console.log(user)
+    let cityPost = this.state.cityPost;
     axios({
       method: 'POST',
       url: `http://localhost:3001/api/status`,
       data: {
         title: title,
         description: description,
-        userId: user
+        userId: user,
+        city: cityPost
       }
     })
     .then(res => {
       console.log('res is ', res);
       this.setState({newPostTitle: '', newPostDescription:''});
+      this.loadPostsFromServer();
     }, err => {
       console.log(err);
     });
+    document.getElementById('inputTitle').value=''
+    document.getElementById('inputDescription').value=''
+    document.getElementById('inputCitySelector').value='none'
   }
+    loadPostsFromServer(){
+    axios({
+      method: 'GET',
+      url: `http://localhost:3001/api/status`
+    })
+    .then((res) => {
+         console.log('res is ', res);
+        this.setState({post: res.data},()=>console.log("inside loadPostsFromServer: ", this.state.post))});
+  }
+  handlePostDelete(targetPost) {
+    console.log('target :', targetPost);
+    axios({
+      method: 'DELETE',
+      url: `http://localhost:3001/api/status/${targetPost}`
+    })
+    .then((res)=> {
+      console.log('deleting post');
+    })
+  }
+
   handleTitleChange(e){
     this.setState({newPostTitle: e.target.value});
   }
   handleDescriptionChange(e){
     this.setState({newPostDescription: e.target.value});
+  }
+  handleCitySelectorChange(e){
+    this.setState({cityPost: e.target.value});
   }
 
   buttonOnClick(e){
@@ -157,6 +211,11 @@ class LayoutContainer extends Component {
     this.setState({isProfile:false})
   }
 
+  handleCitySwitch(cityName){
+    // switch
+    this.setState({cityClicked:cityName})
+  }
+
   navBarControler(){
     let thingsToPrint = "";
     if(!this.state.isAuthenticated){
@@ -168,7 +227,14 @@ class LayoutContainer extends Component {
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
-      thingsToPrint = <ProfileContainer />
+      console.log("check username: ", this.state.username)
+      thingsToPrint = <ProfileContainer 
+        username = {this.state.username}
+        post={this.state.post} 
+
+
+        />
+
     }else{
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
@@ -178,6 +244,10 @@ class LayoutContainer extends Component {
         handleSubmitPost = {this.handleSubmitPost.bind(this)}
         handleTitleChange = {this.handleTitleChange.bind(this)}
         handleDescriptionChange = {this.handleDescriptionChange.bind(this)}
+        handleCitySwitch = {this.handleCitySwitch}
+        handleCitySelectorChange = {this.handleCitySelectorChange}
+        cityClicked = {this.state.cityClicked}
+        post={this.state.post}
 
       />
     }
@@ -186,7 +256,6 @@ class LayoutContainer extends Component {
 
   render() {
     let layOut = this.navBarControler();
-    <LoggedInContainer />
 
     return (
       <div>

@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var StatusSchema = new Schema({
   title: String,
   description: String,
+  city: String,
   user:
   {
     type: Schema.Types.ObjectId,

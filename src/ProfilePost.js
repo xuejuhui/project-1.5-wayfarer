@@ -13,11 +13,12 @@ class ProfilePost extends Component {
     else{this.setState({expand:''})}
   }
   render() {
+    console.log(this.props.post)
     return (
       <div onClick={e=>this.onClick(e)}>
 <div className={`profile-post ${this.state.expand}`}>
-      <h4>Title:</h4>
-      <p>Hello, my name is Levi Perry. This is a test post for a profile page I am making.This city is amazing!blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla</p>
+      <h4>Title: {this.props.title}</h4>
+      <p>{this.props.description}123123</p>
 </div>
       </div>
     );
