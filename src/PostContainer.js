@@ -16,7 +16,8 @@ class PostContainer extends Component {
                 title={p.title} 
                 description={p.description} 
                 handlePostDelete = {this.props.handlePostDelete}
-                id={this.props.id}
+                postUserId={p.user} 
+                currentUser={this.props.id}
                 postId = {p._id}
                 />
     })
