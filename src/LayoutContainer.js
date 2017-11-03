@@ -35,8 +35,7 @@ class LayoutContainer extends Component {
     console.log("cookieLogIn: ", userCookie);
     axios.post(`http://localhost:3001/login`, userCookie)
     .then(res => {
-      console.log('res is ', res);
-      console.log('test: ', res.data._id)
+      console.log('cookie res is ', res);
       this.setState({isAuthenticated: true, id:res.data._id, username:res.username});
         console.log("got an cookie!!!log in!!")
     }, err => {
@@ -68,7 +67,6 @@ class LayoutContainer extends Component {
                 c = c.substring(1);
             }
             if (c.indexOf(name) == 0) {
-              console.log("watch: ", c)
 
                 return c.substring(name.length, c.length);
             }
@@ -81,7 +79,6 @@ class LayoutContainer extends Component {
     if(this.state.password===this.state.password1){
     let username = this.state.username;
     let password = this.state.password;
-    console.log(this.state.username);
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
@@ -123,8 +120,6 @@ class LayoutContainer extends Component {
     let title = this.state.newPostTitle;
     let description = this.state.newPostDescription;
     let user = this.state.id;
-     console.log(title)
-     console.log(user)
     axios({
       method: 'POST',
       url: `http://localhost:3001/api/status`,
