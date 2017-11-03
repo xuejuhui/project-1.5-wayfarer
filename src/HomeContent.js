@@ -6,7 +6,7 @@ class HomeContent extends Component {
     return (
      <div>
     <div className="container">
-        <div style={{height: 80 + 'vh', width:100+'%'}} id="myCarousel" className="carousel slide" data-ride="carousel">
+        <div style={{height: 65 + 'vh', width:100+'%'}} id="myCarousel" className="carousel slide" data-ride="carousel">
 
             <ol className="carousel-indicators" >
                 <li data-target="#myCarousel" data-slide-to="0" className="active" id="slide" ></li>
@@ -16,14 +16,14 @@ class HomeContent extends Component {
 
             <div className="carousel-inner">
                 <div className="item active">
-                    <img style={{height: 80 + 'vh', width:100+'%'}}  className="firstImage" src={require('./images/image88.jpg')} alt="country"  />
+                    <img style={{height: 65 + 'vh', width:100+'%'}}  className="firstImage" src={require('./images/image88.jpg')} alt="country"  />
                     <div className="carousel-caption">
                         <h3>Pin it!</h3>
                         <p>Let us pick one!</p>
                     </div>
                 </div>
                 <div className="item">
-                    <img style={{height: 80 + 'vh', width:100+'%'}} src={require('./images/syd.jpg')} alt="world" />
+                    <img style={{height: 65 + 'vh', width:100+'%'}} src={require('./images/syd.jpg')} alt="world" />
                     <div className="carousel-caption">
                         <h3>world</h3>
                         <p>hmmm, where to go next?</p>
@@ -31,7 +31,7 @@ class HomeContent extends Component {
                 </div>
 
                 <div className="item">
-                    <img style={{height: 80 + 'vh', width:100+'%'}} src={require('./images/greatWall.jpg')} alt="Greece" />
+                    <img style={{height: 65 + 'vh', width:100+'%'}} src={require('./images/greatWall.jpg')} alt="Greece" />
                     <div className="carousel-caption">
                         <h3>China</h3>
                         <p>China is an amazing place to go!</p>
@@ -53,19 +53,19 @@ class HomeContent extends Component {
     <div className="container">
         <div className="row">
             <div className="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <h2>Post Tips</h2>
+                <p>Wayfarer is a place for you to post tips about your traveling experiences so others can come and learn/plan accordingly when they are planning their trip!</p>
+
             </div>
             <div className="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <h2>Community Based</h2>
+                <p>Wayfarer doesnt work without you. The larger the user base the better experience everyone has. This is where traveling tips meets the group collective.</p>
+
             </div>
             <div className="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <h2>User Friendly</h2>
+                <p>We want all of our users to have a great experience on wayfarer. Whether it is planning your next tri[, or just interested in seeing what other people have to say about a place, we want it to be done with ease.</p>
+
             </div>
         </div>
         <hr />
