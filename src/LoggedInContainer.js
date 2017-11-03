@@ -17,6 +17,7 @@ class LoggedInContainer extends Component {
         handleTitleChange = {this.props.handleTitleChange}
         handleDescriptionChange = {this.props.handleDescriptionChange}
         handleCitySelectorChange = {this.props.handleCitySelectorChange}
+        handlePostDelete = {this.props.handlePostDelete}
         cityClicked = {this.props.cityClicked}
         post = {this.props.post}
       />

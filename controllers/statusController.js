@@ -45,7 +45,7 @@ function create(req, res) {
 function destroy(req, res) {
 	var statusId = req.params.status_id;
 	db.Status.remove({_id:statusId}, function(err, foundpost){
-		if(err){res.send(err)}
+		if(err){return res.send(err)}
 		res.json('deleted a post');
 	})
 };
