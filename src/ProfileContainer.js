@@ -22,7 +22,7 @@ class ProfileContainer extends Component {
           <p className="info-title">Web Developer</p>
           <p className="info-city">San Francisco</p>
        </div>
-        <p className="desc">Hey, I'm Levi. I am currently attending General Assembly WDI 41!</p>
+        <p className="desc">Hey, Im Levi. I am currently attending General Assembly WDI 41!</p>
         <div className="social">
           <i className="fa fa-facebook-square" aria-hidden="true"></i>
           <i className="fa fa-twitter-square" aria-hidden="true"></i>
