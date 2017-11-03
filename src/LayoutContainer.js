@@ -20,6 +20,7 @@ class LayoutContainer extends Component {
       newPostTitle: '', 
       newPostDescription:'',
       post: [], 
+      cityPost:'',
       cityClicked:'',
       isAuthenticated:false, 
       isProfile:false
@@ -37,6 +38,7 @@ class LayoutContainer extends Component {
     this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
     this.handlePostDelete = this.handlePostDelete.bind(this);
      this.handleCitySwitch=this.handleCitySwitch.bind(this);
+     this.handleCitySelectorChange = this.handleCitySelectorChange.bind(this);
 
   }
      cookieLogIn(){
@@ -86,6 +88,14 @@ class LayoutContainer extends Component {
         return "";
     }
 
+  emptyModal(){
+    document.getElementsByClassName('modalEmpty')[0].value = '';  
+    document.getElementsByClassName('modalEmpty')[1].value = '';  
+    document.getElementsByClassName('modalEmpty')[2].value = '';  
+    document.getElementsByClassName('modalEmpty')[3].value = '';  
+    document.getElementsByClassName('modalEmpty')[4].value = '';  
+  }
+
   handleSubmit(e){
     e.preventDefault();
     if(this.state.password===this.state.password1){
@@ -94,11 +104,12 @@ class LayoutContainer extends Component {
      axios.post(`http://localhost:3001/signup`, {username:username, password:password})
     .then(res => {
       console.log('res is ', res);
-      // browserHistory.push('/');
     }, err => {
       console.log(err);
     });
-  }}
+    this.emptyModal();
+
+  }else{this.emptyModal()}}
 
     handleSubmitLog(e){
     e.preventDefault();
@@ -113,6 +124,7 @@ class LayoutContainer extends Component {
       console.log('oops!');
       console.log(err);
     });
+    this.emptyModal();
   }
   handleLogout(e){
     e.preventDefault();
@@ -133,13 +145,15 @@ class LayoutContainer extends Component {
     let title = this.state.newPostTitle;
     let description = this.state.newPostDescription;
     let user = this.state.id;
+    let cityPost = this.state.cityPost;
     axios({
       method: 'POST',
       url: `http://localhost:3001/api/status`,
       data: {
         title: title,
         description: description,
-        userId: user
+        userId: user,
+        city: cityPost
       }
     })
     .then(res => {
@@ -149,6 +163,9 @@ class LayoutContainer extends Component {
     }, err => {
       console.log(err);
     });
+    document.getElementById('inputTitle').value=''
+    document.getElementById('inputDescription').value=''
+    document.getElementById('inputCitySelector').value='none'
   }
     loadPostsFromServer(){
     axios({
@@ -175,6 +192,9 @@ class LayoutContainer extends Component {
   }
   handleDescriptionChange(e){
     this.setState({newPostDescription: e.target.value});
+  }
+  handleCitySelectorChange(e){
+    this.setState({cityPost: e.target.value});
   }
 
   buttonOnClick(e){
@@ -219,13 +239,13 @@ class LayoutContainer extends Component {
       if(document.getElementById("log-in-btn")) document.getElementById("log-in-btn").style.display = "none";
       if(document.getElementById("log-out-btn"))document.getElementById("log-out-btn").style.display = "";
       if(document.getElementById("profile-btn"))document.getElementById("profile-btn").style.display = "";
-      console.log("in navBarControler con: ", this.cityClicked)
       thingsToPrint = <LoggedInContainer 
       
         handleSubmitPost = {this.handleSubmitPost.bind(this)}
         handleTitleChange = {this.handleTitleChange.bind(this)}
         handleDescriptionChange = {this.handleDescriptionChange.bind(this)}
         handleCitySwitch = {this.handleCitySwitch}
+        handleCitySelectorChange = {this.handleCitySelectorChange}
         cityClicked = {this.state.cityClicked}
         post={this.state.post}
 

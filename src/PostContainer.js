@@ -44,7 +44,11 @@ class PostContainer extends Component {
                     // <button className="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-orange" style={{'zIndex': 0}} id="addPostBtn" >+</button>
 
   render() {
-    let renderPost = this.props.post.map(p =>{
+    let filterPost = this.props.post.filter(p =>{
+        return p.city===this.props.cityClicked;
+    })
+
+    let renderPost = filterPost.map(p =>{
         return <Post 
                 title={p.title} 
                 description={p.description} 
@@ -72,6 +76,7 @@ class PostContainer extends Component {
                           handleSubmitPost = {this.props.handleSubmitPost}  
         handleTitleChange = {this.props.handleTitleChange}
         handleDescriptionChange = {this.props.handleDescriptionChange}
+        handleCitySelectorChange = {this.props.handleCitySelectorChange}
                         />
                     </div>
                 </div>

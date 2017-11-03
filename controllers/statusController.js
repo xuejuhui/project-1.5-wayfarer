@@ -22,6 +22,7 @@ function create(req, res) {
 	var status = new db.Status();
 	status.title = req.body.title;
 	status.description = req.body.description;
+	status.city = req.body.city;
 	var id = req.body.userId;
 	db.User.findOne({_id: id}, function(err, user){
 		if(err){

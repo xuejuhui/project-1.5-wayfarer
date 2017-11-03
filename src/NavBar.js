@@ -46,11 +46,11 @@ class NavBar extends Component {
                      <form onSubmit={ this.props.handleSubmitLog }>
                         <div className="form-group">
                             <label for="inputEmail1">User Name</label>
-                           <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="text" className="form-control" placeholder="Enter username" />
+                           <input onChange={this.props.handleUsernameChange} type="text" className="form-control modalEmpty" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword1">Password</label>
-                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword2" placeholder="Password" />
+                            <input onChange={this.props.handlePasswordChange} type="password" className="form-control modalEmpty" id="inputPassword2" placeholder="Password" />
                         </div>
                         <button type="submit" className="btn btn-default" data-toggle='modal' data-target='#squarespaceModal'>Submit</button>
                     </form>
@@ -62,15 +62,15 @@ class NavBar extends Component {
                     <form onSubmit={this.props.handleSubmit }>
                         <div className="form-group">
                             <label for="inputEmail2">User Name</label>
-                            <input value={ this.props.username } onChange={this.props.handleUsernameChange} type="text" className="form-control" placeholder="Enter username" />
+                            <input onChange={this.props.handleUsernameChange} type="text" className="form-control modalEmpty" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <label for="inputPassword2">Password</label>
-                            <input value={ this.props.password } onChange={this.props.handlePasswordChange} type="password" className="form-control" id="inputPassword3" placeholder="Password" />
+                            <input onChange={this.props.handlePasswordChange} type="password" className="form-control modalEmpty" id="inputPassword3" placeholder="Password" />
                         </div>
                         <div className="form-group">
                             <label for="confirmPassword">Confirm</label>
-                            <input value={ this.props.password1 } onChange={this.props.handlePasswordConfirm} type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
+                            <input onChange={this.props.handlePasswordConfirm} type="password" className="form-control modalEmpty" id="confirmPassword" placeholder="Confirm Password" />
                         </div>
                         <button type="submit" className="btn btn-default" data-toggle='modal' data-target='#squarespaceModal'>Submit</button>
                     </form>
