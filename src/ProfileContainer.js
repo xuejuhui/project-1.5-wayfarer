@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProfilePosts from './ProfilePosts.js'
-import style from './profile.css'
+import style from './css/profile.css'
 
 class ProfileContainer extends Component {
   render() {
