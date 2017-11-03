@@ -4,6 +4,7 @@ import style from './profile.css'
 
 class ProfileContainer extends Component {
   render() {
+    console.log("inside the profile container", this.props.post)
     return (
       <div>
       <div className="profile-body">
@@ -30,7 +31,7 @@ class ProfileContainer extends Component {
         </div>
       </div>
       <div className="right col-lg-8">
-      <ProfilePosts />
+      <ProfilePosts post={this.props.post}/>
       </div>
 </div>
 </div>
